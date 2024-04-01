@@ -3,8 +3,6 @@ using System.Net;
 using System.Windows;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Win32;
-
 
 namespace ICPServer
 {
@@ -48,7 +46,8 @@ namespace ICPServer
             server.Start();
 
             //RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true)!;
-            //key.SetValue("ICPServer", Environment.ProcessPath!);
+            //var test = Application.ExecutablePath;
+            //key.SetValue("ICPServer", test);
             //key.DeleteValue("ICPServer");
 
             InitializeComponent();

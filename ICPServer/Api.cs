@@ -37,6 +37,6 @@ namespace ICPServer
 
     public class Payload
     {
-        public required String Key { get; set; }
+        public required string Key { get; set; }
     }
 }
