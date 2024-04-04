@@ -7,11 +7,13 @@
         mc:Ignorable="d"
         x:Name="Main"
         Background="DarkGray"
-        Title="ICP Server" ResizeMode="CanMinimize" Height="113" Width="282">
+        Title="ICP Server" ResizeMode="CanMinimize" Height="245" Width="282">
     <Grid>
         <Label Content="Listening on:" HorizontalAlignment="Left" Margin="10,9,0,0" VerticalAlignment="Top"/>
         <Label Content="{Binding Ip, ElementName=Main}" HorizontalAlignment="Left" Margin="84,9,0,0" VerticalAlignment="Top"/>
         <Label Content="Port:" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
-        <Label Content="{Binding Port, ElementName=Main}" HorizontalAlignment="Left" Margin="42,35,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="{Binding Port, ElementName=Main}" HorizontalAlignment="Left" Margin="42,35,0,0" VerticalAlignment="Top"/>
+        <Button Content="3000" Tag="3000" Click="ChangePort" HorizontalAlignment="Left" VerticalAlignment="Top" Width="54" Margin="10,66,0,0"/>
+        <Button Content="3010" Tag="3010" Click="ChangePort" HorizontalAlignment="Left" VerticalAlignment="Top" Width="54" Margin="69,66,0,0"/>
     </Grid>
 </Window>
