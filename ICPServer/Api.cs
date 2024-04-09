@@ -57,13 +57,21 @@ namespace ICPServer
 
     public class MainController
     {
+
         [HttpPost]
         [Route("/action")]
         public void Post([FromBody] Payload payload)
         {
-            var value = Convert.ToInt32(payload.Key, 16);
-            KeyCode key = (KeyCode)value;
-            WindowsInput.Simulate.Events().Hold(key).Wait(100).Release(key).Invoke();
+            try
+            {
+                var value = Convert.ToInt32(payload.Key, 16);
+                KeyCode key = (KeyCode)value;
+                WindowsInput.Simulate.Events().Hold(key).Wait(100).Release(key).Invoke();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 

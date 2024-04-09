@@ -20,7 +20,9 @@ namespace ICPServer
             ni.Icon = new Icon("trayicon.ico");
             ni.Visible = true;
             ni.DoubleClick += new EventHandler(ShowApp);
-            ni.Click += new EventHandler(ClickTray);
+            ni.ContextMenuStrip = new ContextMenuStrip();            
+            ni.ContextMenuStrip.Items.Add("Show", null, ShowApp);
+            ni.ContextMenuStrip.Items.Add("Close", null, CloseApp);
 
             Ip = Server.GetLocalIp();
             Host = Server.HostBuilder(Port);
