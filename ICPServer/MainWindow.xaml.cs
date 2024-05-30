@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Hosting;
 using System.Windows;
 using Button = System.Windows.Controls.Button;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace ICPServer
 {
@@ -12,7 +13,7 @@ namespace ICPServer
         public string Ip { get; set; }
         public string Port { get; set; } = "3000";
 
-        private IHost Host;
+        private readonly IHost Host;
 
         public MainWindow()
         {
@@ -20,29 +21,38 @@ namespace ICPServer
             ni.Icon = new Icon("trayicon.ico");
             ni.Visible = true;
             ni.DoubleClick += new EventHandler(ShowApp);
-            ni.ContextMenuStrip = new ContextMenuStrip();            
+            ni.ContextMenuStrip = new ContextMenuStrip();
             ni.ContextMenuStrip.Items.Add("Show", null, ShowApp);
             ni.ContextMenuStrip.Items.Add("Close", null, CloseApp);
 
-            Ip = Server.GetLocalIp();
-            Host = Server.HostBuilder(Port);
+            try
+            {
+                Ip = Server.GetLocalIp();
+                Host = Server.HostBuilder(Port);
 
-            Host.Start();
+                Host.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Localhost error: {ex.Message}", caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                Close();
+            }
 
             InitializeComponent();
+
         }
 
-        private async void ChangePort(object sender, RoutedEventArgs e)
-        {
-            await Host.StopAsync();
-            Port = ((Button)sender).Tag as String;
-            Host = Server.HostBuilder(Port);
-            App.Current.Dispatcher.Invoke(() =>
-            {
-                label.Content = Port;
-            });
-            Host.Start();
-        }
+        //private async void ChangePort(object sender, RoutedEventArgs e)
+        //{
+        //    await Host.StopAsync();
+        //    Port = ((Button)sender).Tag as String;
+        //    Host = Server.HostBuilder(Port);
+        //    App.Current.Dispatcher.Invoke(() =>
+        //    {
+        //        label.Content = Port;
+        //    });
+        //    Host.Start();
+        //}
 
         private void ClickTray(object Sender, EventArgs e)
         {

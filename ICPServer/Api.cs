@@ -59,18 +59,34 @@ namespace ICPServer
     {
 
         [HttpPost]
-        [Route("/action")]
-        public void Post([FromBody] Payload payload)
+        [Route("/press")]
+        public void Press([FromBody] Payload payload)
         {
             try
             {
                 var value = Convert.ToInt32(payload.Key, 16);
                 KeyCode key = (KeyCode)value;
-                WindowsInput.Simulate.Events().Hold(key).Wait(100).Release(key).Invoke();
+                WindowsInput.Simulate.Events().Hold(key).Invoke();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show($"Request error: {ex.Message}", caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            }
+        }
+
+        [HttpPost]
+        [Route("/release")]
+        public void Release([FromBody] Payload payload)
+        {
+            try
+            {
+                var value = Convert.ToInt32(payload.Key, 16);
+                KeyCode key = (KeyCode)value;
+                WindowsInput.Simulate.Events().Release(key).Invoke();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Request error: {ex.Message}", caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
             }
         }
     }
