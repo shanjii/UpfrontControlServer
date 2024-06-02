@@ -17,7 +17,7 @@ namespace ICPServer
         public MainWindow()
         {
             Startup();
-            
+
             InitializeComponent();
         }
 
