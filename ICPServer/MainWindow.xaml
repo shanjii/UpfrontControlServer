@@ -3,13 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ICPServer"
         mc:Ignorable="d"
         x:Name="Main"
         Background="LightGray"
-        Title="ICP Server" ResizeMode="CanMinimize" Height="157" Width="269" Cursor="Arrow" Icon="/trayicon.ico">
-    <Grid>
-        <Image Source="trayicon.ico" HorizontalAlignment="Left" Height="108" Margin="134,18,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="0.5,0.5">
+        Title="ICP Server"
+        SizeToContent="WidthAndHeight"
+        ResizeMode="CanMinimize"
+        Cursor="Arrow" 
+        Icon="/trayicon.ico">
+    <Grid Height="121" Width="265">
+        <Image Source="trayicon.ico" HorizontalAlignment="Left" Height="108" Margin="151,15,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -19,9 +22,9 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Label Content="Listening on:" HorizontalAlignment="Left" Margin="10,9,0,0" VerticalAlignment="Top" FontFamily="Unispace"/>
-        <Label Content="{Binding Ip, ElementName=Main}" HorizontalAlignment="Left" Margin="109,9,0,0" VerticalAlignment="Top" FontFamily="Unispace" Width="143" Height="23"/>
-        <Label Content="Port:" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" FontFamily="Unispace"/>
+        <Label Content="Listening on:" HorizontalAlignment="Left" Margin="9,9,0,0" VerticalAlignment="Top" FontFamily="Unispace" Height="23"/>
+        <Label Content="{Binding Ip, ElementName=Main}" HorizontalAlignment="Left" Margin="109,9,0,0" VerticalAlignment="Top" FontFamily="Unispace" Width="146" Height="23"/>
+        <Label Content="Port:" HorizontalAlignment="Left" Margin="9,35,0,0" VerticalAlignment="Top" FontFamily="Unispace" Height="23"/>
         <Label x:Name="label" Content="{Binding Port, ElementName=Main}" HorizontalAlignment="Left" Margin="51,35,0,0" VerticalAlignment="Top" FontFamily="Unispace" Height="23" Width="87"/>
     </Grid>
 </Window>
