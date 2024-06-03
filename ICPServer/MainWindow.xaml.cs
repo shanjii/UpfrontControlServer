@@ -44,7 +44,7 @@ namespace ICPServer
 
         private void SetupSystemTrays()
         {
-            ni.Icon = new Icon("trayicon.ico");
+            ni.Icon = new Icon("Resources/trayicon.ico");
             ni.Visible = true;
             ni.DoubleClick += new EventHandler(ShowApp);
             ni.ContextMenuStrip = new ContextMenuStrip();

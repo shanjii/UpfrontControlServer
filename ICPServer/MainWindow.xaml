@@ -10,9 +10,9 @@
         SizeToContent="WidthAndHeight"
         ResizeMode="CanMinimize"
         Cursor="Arrow" 
-        Icon="/trayicon.ico">
+        Icon="/Resources/trayicon.ico">
     <Grid Height="121" Width="265">
-        <Image Source="trayicon.ico" HorizontalAlignment="Left" Height="108" Margin="151,15,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="0.5,0.5">
+        <Image Source="Resources/trayicon.ico" HorizontalAlignment="Left" Height="108" Margin="151,15,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
