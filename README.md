@@ -9,7 +9,7 @@ Uses **[ASP.NET Core and .NET Desktop 8.0](https://dotnet.microsoft.com/en-us/do
 
 ## How does it work
 
-The application runs a WPF executable with a local server inside, it receives HTTP requests from the **[ICPApp](https://github.com/shanjii/ICPApp)** and applies the inputs given from the HTTP requests using the **[WindowsInput](https://www.nuget.org/packages/WindowsInput)** library.
+The application runs a WPF executable with a local server inside, it receives HTTP requests from the **[ICPApp](https://github.com/shanjii/ICPApp)** and applies the inputs given from the HTTP requests using the **[WindowsInput](https://www.nuget.org/packages/WindowsInput)** package.
 
 ## Advanced configuration
 
