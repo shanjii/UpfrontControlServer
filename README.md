@@ -1,9 +1,10 @@
 # ICPServer
 
 This is a server client for the **[ICPApp](https://github.com/shanjii/ICPApp)** to communicate with your Windows computer.
+<br/>
 Uses **[ASP.NET Core and .NET Desktop 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)**, the installer will automatically detect any missing dependencies and install them when needed.
 
-**[Installer download](https://github.com/shanjii/ICPServer/releases/tag/v1.0.0)**
+**[Download the installer](https://github.com/shanjii/ICPServer/releases/tag/v1.0.0)**
 
 ## How does it work
 
