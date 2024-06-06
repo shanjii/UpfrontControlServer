@@ -13,4 +13,4 @@ The application runs a WPF executable with a local server inside, it receives HT
 
 ## Advanced configuration
 
-You can modify the default server port (5551) by changing the values inside the **ICPServer\settings.json** file
+You can modify the default server port (5551) by changing the values inside **C:\Program Files\ICPServer\settings.json**
