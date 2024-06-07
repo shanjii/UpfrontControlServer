@@ -8,14 +8,14 @@ namespace ICPServer.Data
         {
             bool extended = key.Contains('#');
             KeyCode keyCode = GetKeyCode(extended ? key.Replace("#", "") : key);
-            WindowsInput.Simulate.Events().Hold(keyCode, extended).Invoke();
+            WindowsInput.Simulate.Events().Hold(keyCode, extended ? true : null).Invoke();
         }
 
         public static void ReleaseKey(string key)
         {
             bool extended = key.Contains('#');
             KeyCode keyCode = GetKeyCode(extended ? key.Replace("#", "") : key);
-            WindowsInput.Simulate.Events().Release(keyCode, extended).Invoke();
+            WindowsInput.Simulate.Events().Release(keyCode, extended ? true : null).Invoke();
         }
 
         private static KeyCode GetKeyCode(string key)
