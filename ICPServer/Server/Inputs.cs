@@ -6,14 +6,16 @@ namespace ICPServer.Data
     {
         public static void PressKey(string key)
         {
-            KeyCode keyCode = GetKeyCode(key);
-            WindowsInput.Simulate.Events().Hold(keyCode).Invoke();
+            bool extended = key.Contains('#');
+            KeyCode keyCode = GetKeyCode(extended ? key.Replace("#", "") : key);
+            WindowsInput.Simulate.Events().Hold(keyCode, extended).Invoke();
         }
 
         public static void ReleaseKey(string key)
         {
-            KeyCode keyCode = GetKeyCode(key);
-            WindowsInput.Simulate.Events().Release(keyCode).Invoke();
+            bool extended = key.Contains('#');
+            KeyCode keyCode = GetKeyCode(extended ? key.Replace("#", "") : key);
+            WindowsInput.Simulate.Events().Release(keyCode, extended).Invoke();
         }
 
         private static KeyCode GetKeyCode(string key)
