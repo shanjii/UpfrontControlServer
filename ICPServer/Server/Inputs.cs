@@ -7,7 +7,7 @@ namespace ICPServer.Data
         public static void PressKey(string key)
         {
             bool extended = key.Contains('#');
-            KeyCode keyCode = GetKeyCode(extended ? key.Replace("#", "") : key);
+            KeyCode keyCode = GetKeyCode(key.Replace("#", ""));
             WindowsInput.Simulate.Events().Hold(keyCode, extended ? true : null).Invoke();
         }
 
