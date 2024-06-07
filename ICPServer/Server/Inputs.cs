@@ -14,7 +14,7 @@ namespace ICPServer.Data
         public static void ReleaseKey(string key)
         {
             bool extended = key.Contains('#');
-            KeyCode keyCode = GetKeyCode(extended ? key.Replace("#", "") : key);
+            KeyCode keyCode = GetKeyCode(key.Replace("#", ""));
             WindowsInput.Simulate.Events().Release(keyCode, extended ? true : null).Invoke();
         }
 
