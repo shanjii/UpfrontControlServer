@@ -7,12 +7,13 @@ namespace ICPServer.Data
     {
 
         [HttpPost]
-        [Route("/press")]
-        public void Press([FromBody] ActionModel payload)
+        [Route("/press-keyboard")]
+        public void PressKeyboard([FromBody] ActionModel payload)
         {
             try
             {
-                Inputs.PressKey(payload.Key);
+                if (payload.Key == null) return;
+                Inputs.PressKeyKeyboard(payload.Key);
             }
             catch (Exception ex)
             {
@@ -21,12 +22,43 @@ namespace ICPServer.Data
         }
 
         [HttpPost]
-        [Route("/release")]
-        public void Release([FromBody] ActionModel payload)
+        [Route("/release-keyboard")]
+        public void ReleaseKeyboard([FromBody] ActionModel payload)
         {
             try
             {
-                Inputs.ReleaseKey(payload.Key);
+                if (payload.Key == null) return;
+                Inputs.ReleaseKeyKeyboard(payload.Key);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Request error: {ex.Message}", caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            }
+        }
+
+        [HttpPost]
+        [Route("/press-vjoy")]
+        public void PressVjoy([FromBody] ActionModel payload)
+        {
+            try
+            {
+                if (payload.JoyKey == null) return;
+                Inputs.PressKeyVjoy(Convert.ToUInt32(payload.JoyKey));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Request error: {ex.Message}", caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+            }
+        }
+
+        [HttpPost]
+        [Route("/release-vjoy")]
+        public void ReleaseVjoy([FromBody] ActionModel payload)
+        {
+            try
+            {
+                if (payload.JoyKey == null) return;
+                Inputs.ReleaseKeyVjoy(Convert.ToUInt32(payload.JoyKey));
             }
             catch (Exception ex)
             {
@@ -34,6 +66,4 @@ namespace ICPServer.Data
             }
         }
     }
-
-
 }
