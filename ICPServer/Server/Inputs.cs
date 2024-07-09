@@ -1,20 +1,58 @@
-﻿using WindowsInput.Events;
+﻿using vJoy.Wrapper;
+using WindowsInput.Events;
 
 namespace ICPServer.Data
 {
     public class Inputs
     {
-        public static void PressKey(string key)
+        static readonly VirtualJoystick joystick = new(1);
+
+        #region Keyboard actions
+        public static void PressKeyKeyboard(string key, string modifier)
         {
-            KeyCode keyCode = GetKeyCode(key);
-            WindowsInput.Simulate.Events().Hold(keyCode).Invoke();
+            bool extended = key.Contains('#');
+            KeyCode keyCode = GetKeyCode(key.Replace("#", ""));
+
+            if (modifier != null)
+            {
+                KeyCode modifierCode = GetKeyCode(modifier.Replace("#", ""));
+                WindowsInput.Simulate.Events().Hold(modifierCode).Invoke();
+            }
+
+            WindowsInput.Simulate.Events().Hold(keyCode, extended ? true : null).Invoke();
         }
 
-        public static void ReleaseKey(string key)
+        public static void ReleaseKeyKeyboard(string key, string modifier)
         {
-            KeyCode keyCode = GetKeyCode(key);
-            WindowsInput.Simulate.Events().Release(keyCode).Invoke();
+            bool extended = key.Contains('#');
+            KeyCode keyCode = GetKeyCode(key.Replace("#", ""));
+
+            if (modifier != null)
+            {
+                KeyCode modifierCode = GetKeyCode(modifier.Replace("#", ""));
+                WindowsInput.Simulate.Events().Release(modifierCode).Invoke();
+            }
+
+            WindowsInput.Simulate.Events().Release(keyCode, extended ? true : null).Invoke();
         }
+
+        #endregion
+
+        #region vJoy actions
+
+        public static void PressKeyVjoy(uint vjoyKey)
+        {
+            joystick.Aquire();
+            joystick.SetJoystickButton(true, vjoyKey);
+        }
+
+        public static void ReleaseKeyVjoy(uint vjoyKey)
+        {
+            joystick.Aquire();
+            joystick.SetJoystickButton(false, vjoyKey);
+        }
+
+        #endregion
 
         private static KeyCode GetKeyCode(string key)
         {
