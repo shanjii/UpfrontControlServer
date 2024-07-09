@@ -13,7 +13,7 @@ namespace ICPServer.Data
             try
             {
                 if (payload.Key == null) return;
-                Inputs.PressKeyKeyboard(payload.Key);
+                Inputs.PressKeyKeyboard(payload.Key, payload.Modifier);
             }
             catch (Exception ex)
             {
@@ -28,7 +28,7 @@ namespace ICPServer.Data
             try
             {
                 if (payload.Key == null) return;
-                Inputs.ReleaseKeyKeyboard(payload.Key);
+                Inputs.ReleaseKeyKeyboard(payload.Key, payload.Modifier);
             }
             catch (Exception ex)
             {
