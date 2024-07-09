@@ -1,4 +1,4 @@
-# ICPServer
+# Upfront Control Server
 
 This is a server client for **[Upfront Control](https://github.com/shanjii/UpfrontControl)** to communicate with your Windows computer.
 <br/>
