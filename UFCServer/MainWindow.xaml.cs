@@ -1,11 +1,11 @@
-﻿using ICPServer.Data;
-using ICPServer.Utils;
+﻿using UFCServer.Data;
+using UFCServer.Utils;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using System.Windows;
 using MessageBox = System.Windows.Forms.MessageBox;
 
-namespace ICPServer
+namespace UFCServer
 {
 
     public partial class MainWindow : Window

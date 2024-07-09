@@ -1,4 +1,4 @@
-﻿namespace ICPServer.Models
+﻿namespace UFCServer.Models
 {
     public class ActionModel
     {

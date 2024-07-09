@@ -1,7 +1,7 @@
-﻿using ICPServer.Models;
+﻿using UFCServer.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ICPServer.Data
+namespace UFCServer.Data
 {
     public class Controller
     {

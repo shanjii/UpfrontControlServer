@@ -1,7 +1,7 @@
 ﻿using vJoy.Wrapper;
 using WindowsInput.Events;
 
-namespace ICPServer.Data
+namespace UFCServer.Data
 {
     public class Inputs
     {

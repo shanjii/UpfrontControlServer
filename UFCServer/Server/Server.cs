@@ -1,11 +1,9 @@
 ﻿using Microsoft.Extensions.Hosting;
-using System.Net.Sockets;
-using System.Net;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ICPServer.Data
+namespace UFCServer.Data
 {
     public class Server
     {
