@@ -3,7 +3,7 @@ using System.Data;
 using System.Windows;
 using Application = System.Windows.Application;
 
-namespace ICPServer
+namespace UFCServer
 {
     /// <summary>
     /// Interaction logic for App.xaml

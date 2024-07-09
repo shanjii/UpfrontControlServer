@@ -2,9 +2,9 @@
 using System.Net;
 using System.IO;
 using System.Text.Json;
-using ICPServer.Models;
+using UFCServer.Models;
 
-namespace ICPServer.Utils
+namespace UFCServer.Utils
 {
     public class Common
     {

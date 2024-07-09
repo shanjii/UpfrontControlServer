@@ -10,6 +10,14 @@
 		<StartupObject></StartupObject>
 		<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
 		<Platforms>AnyCPU;x86</Platforms>
+		<Title>Upfront Control Server</Title>
+		<Version>0.2.0</Version>
+		<PackageId>$(AssemblyName)</PackageId>
+		<Authors>Shanji</Authors>
+		<Product>Upfront Control Server</Product>
+		<Description>Server application that communicates with the Upfront Control app</Description>
+		<PackageIcon>trayicon.ico</PackageIcon>
+		<AssemblyName>Upfront Control Server</AssemblyName>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -61,6 +69,8 @@
 	  </None>
 	  <None Update="Resources\trayicon.ico">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
 	  </None>
 	</ItemGroup>
 
