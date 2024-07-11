@@ -5,8 +5,6 @@ namespace UFCServer.Data
 {
     public class Inputs
     {
-        static readonly VirtualJoystick joystick = new(1);
-
         #region Keyboard actions
         public static void PressKeyKeyboard(string key, string modifier)
         {
@@ -42,14 +40,18 @@ namespace UFCServer.Data
 
         public static void PressKeyVjoy(uint vjoyKey)
         {
-            joystick.Aquire();
+            VirtualJoystick joystick = MainWindow.joystick;
             joystick.SetJoystickButton(true, vjoyKey);
         }
 
         public static void ReleaseKeyVjoy(uint vjoyKey)
         {
-            joystick.Aquire();
-            joystick.SetJoystickButton(false, vjoyKey);
+            //A small delay is required otherwise vJoy will not register the input on quick presses.
+            Task.Delay(50).ContinueWith(t =>
+            {
+                VirtualJoystick joystick = MainWindow.joystick;
+                joystick.SetJoystickButton(false, vjoyKey);
+            });
         }
 
         #endregion

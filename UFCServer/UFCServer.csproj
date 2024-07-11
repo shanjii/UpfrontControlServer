@@ -11,7 +11,7 @@
 		<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
 		<Platforms>AnyCPU;x86</Platforms>
 		<Title>Upfront Control Server</Title>
-		<Version>0.2.0</Version>
+		<Version>0.2.1</Version>
 		<PackageId>$(AssemblyName)</PackageId>
 		<Authors>Shanji</Authors>
 		<Product>Upfront Control Server</Product>
