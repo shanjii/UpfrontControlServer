@@ -43,7 +43,7 @@ namespace UFCServer.Data
             try
             {
                 if (payload.JoyKey == null) return;
-                Inputs.PressKeyVjoy(Convert.ToUInt32(payload.JoyKey));
+                Inputs.PressKeyVjoy((uint)payload.JoyKey);
             }
             catch (Exception ex)
             {
@@ -58,7 +58,7 @@ namespace UFCServer.Data
             try
             {
                 if (payload.JoyKey == null) return;
-                Inputs.ReleaseKeyVjoy(Convert.ToUInt32(payload.JoyKey));
+                Inputs.ReleaseKeyVjoy((uint)payload.JoyKey);
             }
             catch (Exception ex)
             {

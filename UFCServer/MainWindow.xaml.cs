@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using System.Windows;
 using MessageBox = System.Windows.Forms.MessageBox;
+using vJoy.Wrapper;
 
 namespace UFCServer
 {
@@ -13,6 +14,8 @@ namespace UFCServer
         private readonly NotifyIcon ni = new();
         public string Ip { get; set; }
         public string Port { get; set; }
+
+        public readonly static VirtualJoystick joystick = new(1);
 
         public MainWindow()
         {
@@ -28,6 +31,7 @@ namespace UFCServer
 
             try
             {
+                joystick.Aquire();
                 Ip = Common.GetLocalIp();
                 Port = Common.GetSettings().Port;
 
