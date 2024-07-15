@@ -15,8 +15,6 @@ namespace UFCServer
         public string Ip { get; set; }
         public string Port { get; set; }
 
-        public readonly static VirtualJoystick joystick = new(1);
-
         public MainWindow()
         {
             Startup();
@@ -28,15 +26,14 @@ namespace UFCServer
         {
 
             SetupSystemTrays();
+            SetVjoy();
+
+            Ip = Common.GetLocalIp();
+            Port = Common.GetSettings().Port;
+            IHost Host = Server.HostBuilder(Port);
 
             try
             {
-                joystick.Aquire();
-                Ip = Common.GetLocalIp();
-                Port = Common.GetSettings().Port;
-
-                IHost Host = Server.HostBuilder(Port);
-
                 Host.Start();
             }
             catch (Exception ex)
@@ -54,6 +51,12 @@ namespace UFCServer
             ni.ContextMenuStrip = new ContextMenuStrip();
             ni.ContextMenuStrip.Items.Add("Show", null, ShowApp);
             ni.ContextMenuStrip.Items.Add("Close", null, CloseApp);
+        }
+
+        private void SetVjoy()
+        {
+            VirtualJoystick joystick = new(1);
+            joystick.Aquire();
         }
 
         private void ShowApp(object Sender, EventArgs e)

@@ -40,16 +40,16 @@ namespace UFCServer.Data
 
         public static void PressKeyVjoy(uint vjoyKey)
         {
-            VirtualJoystick joystick = MainWindow.joystick;
+            VirtualJoystick joystick = new(1);
             joystick.SetJoystickButton(true, vjoyKey);
         }
 
         public static void ReleaseKeyVjoy(uint vjoyKey)
         {
             //A small delay is required otherwise vJoy will not register the input on quick presses.
-            Task.Delay(50).ContinueWith(t =>
+            Task.Delay(30).ContinueWith(t =>
             {
-                VirtualJoystick joystick = MainWindow.joystick;
+                VirtualJoystick joystick = new(1);
                 joystick.SetJoystickButton(false, vjoyKey);
             });
         }
